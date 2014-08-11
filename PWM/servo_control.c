@@ -11,6 +11,7 @@
 
 static void init_servo_gpio();
 static void init_servo_timer();
+static int duty_cycle_to_degrees(int degrees);
 
 static uint32_t servo = CENTER;
 static Direction servo_dir = DIR_CLOCKWISE;
@@ -97,10 +98,10 @@ void move_servo(Direction dir)
 		servo = CENTER;
 		break;
 	}
-	set_servo_pos(servo);
+	set_servo_duty_cycle(servo);
 }
 
-void set_servo_pos(int pos)
+void set_servo_duty_cycle(int pos)
 {
 	if(pos <= MAX_DEFLECTION && pos >= MIN_DEFLECTION)
 	{
@@ -108,9 +109,24 @@ void set_servo_pos(int pos)
 	}
 }
 
+bool set_servo_pos(int degrees)
+{
+	if(degrees >= 0 && degrees <= 180)
+	{
+		set_servo_duty_cycle(duty_cycle_to_degrees(degrees));
+		return true;
+	}
+	return false;
+}
+
+static int duty_cycle_to_degrees(int degrees)
+{
+	return (((MAX_DEFLECTION - MIN_DEFLECTION) / 180) * degrees) + MIN_DEFLECTION;
+}
+
 void center_servo()
 {
-	set_servo_pos(CENTER);
+	set_servo_duty_cycle(CENTER);
 }
 
 int get_servo_pos()
