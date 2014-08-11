@@ -50,7 +50,7 @@ Icon
 */cmsis
 */cmsis_boot
 */semihosting
-/Servo/Servo
+/*/Servo
 */stdio
 */stm_lib
 */syscalls
