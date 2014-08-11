@@ -47,11 +47,11 @@ Icon
 *.cogui
 *.comarker
 *.coproj
-/cmsis
-/cmsis_boot
-/semihosting
-/Servo
-/stdio
-/stm_lib
-/syscalls
+*/cmsis
+*/cmsis_boot
+*/semihosting
+/Servo/Servo
+*/stdio
+*/stm_lib
+*/syscalls
 
