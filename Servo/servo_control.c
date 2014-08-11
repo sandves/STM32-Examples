@@ -77,7 +77,7 @@ static void init_servo_timer()
 	TIM_Cmd(TIM4, ENABLE);
 }
 
-void move_servo(int dir)
+void move_servo(Direction dir)
 {
 	switch(dir)
 	{

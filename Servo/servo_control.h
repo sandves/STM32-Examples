@@ -11,10 +11,13 @@
 #define CENTER 			1700
 #define MOVE			50
 
-typedef enum {DIR_CLOCKWISE, DIR_COUNTER_CLOCKWISE, DIR_CENTER};
+typedef enum {
+	DIR_CLOCKWISE,
+	DIR_COUNTER_CLOCKWISE,
+	DIR_CENTER} Direction;
 
 void servo_control_init();
-void move_servo(int dir);
+void move_servo(Direction dir);
 void set_servo_pos(int pos);
 void center_servo();
 int get_servo_pos();
