@@ -6,10 +6,10 @@
 #ifndef _SERVO_CONTROL_H_
 #define _SERVO_CONTROL_H_
 
-#define MAX_DEFLECTION	2700
-#define MIN_DEFLECTION	700
-#define CENTER 			1700
-#define MOVE			50
+#define MAX_DEFLECTION	((uint32_t)2700)
+#define MIN_DEFLECTION	((uint32_t)700)
+#define CENTER 			((uint32_t)1700)
+#define MOVE			((uint32_t)50)
 
 typedef enum {
 	DIR_CLOCKWISE,

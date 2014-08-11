@@ -12,8 +12,8 @@
 static void init_servo_gpio();
 static void init_servo_timer();
 
-static int servo = CENTER;
-static int servo_dir = DIR_CLOCKWISE;
+static uint32_t servo = CENTER;
+static Direction servo_dir = DIR_CLOCKWISE;
 
 void servo_control_init()
 {

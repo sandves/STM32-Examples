@@ -5,16 +5,20 @@
 #include "misc.h"
 #include "servo_control.h"
 #include "led_control.h"
+#include <stdbool.h>;
 
 static void init_button_gpio();
 static void init_timer();
 static void enable_timer_interrupt();
 static void delay(uint32_t time);
 
+// __IO = volatile
+// Use __IO to prevent the compiler from removing the loop
+// in SystickHandle during code optimization.
 static __IO uint32_t TimingDelay;
-static int running = 1;
-static int button_pressed = 0;
-static int led_counter = 0;
+static bool running = true;
+static bool button_pressed = false;
+static uint32_t led_counter = 0;
 
 int main(void)
 {
@@ -89,13 +93,13 @@ void TIM2_IRQHandler()
 
 	if(GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_9) == Bit_RESET && !button_pressed)
 	{
-		button_pressed = 1;
+		button_pressed = true;
 	}
 
 	if(GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_9) == Bit_SET && button_pressed)
 	{
 		running = !running;
-		button_pressed = 0;
+		button_pressed = false;
 	}
 
 
@@ -103,18 +107,20 @@ void TIM2_IRQHandler()
 	{
 		TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
 
-		if (running == 1)
+		if (running == true)
 		{
 			// Move servo one step every timer interrupt.
 			toggle_servo();
 
-			// Toggle LEDs every fifth timer interrupt, which with this
-			// configuration corresponds to 1/4 of a second (250ms).
-			if(led_counter == 5)
+			// The following code makes the LEDs blink twice
+			// followed by a longer pause.
+			if(led_counter % 2 != 0 && led_counter <=7)
 			{
 				toggle_led();
-				led_counter = 0;
+
 			}
+			if(led_counter == 20)
+				led_counter = 0;
 			led_counter++;
 		}
 	}
