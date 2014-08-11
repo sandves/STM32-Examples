@@ -54,7 +54,7 @@ static void init_timer()
 	 * Timer is 16 bits, so the highest value is 65535 (2^16).
 	 * 24 000 000 = 24000 * 1000
 	 * Prescaler = 24000 - 1 (zero based)
-	 * Period = 1000 -1 (zero based?)
+	 * Period = 1000 -1 (zero based)
 	 */
 
 	TIM_TimeBaseInitTypeDef timerInitStructure;
