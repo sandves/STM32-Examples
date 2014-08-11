@@ -6,9 +6,10 @@
 #ifndef _LED_CONTROL_H_
 #define _LED_CONTROL_H_
 
-#define COLOR_RED	0
-#define COLOR_GREEN	1
-#define COLOR_BLUE	2
+typedef enum {
+	COLOR_RED,
+	COLOR_GREEN,
+	COLOR_BLUE} Color;
 
 void led_control_init();
 void toggle_led();

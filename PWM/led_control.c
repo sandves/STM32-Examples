@@ -7,10 +7,10 @@
 
 static void init_gpio();
 static void switch_color();
-static void next_color(int next_color);
+static void next_color(Color next_color);
 
 static int led_state = 0;
-static int color = COLOR_RED;
+static Color color = COLOR_RED;
 static int color_count = 0;
 
 void led_control_init()
@@ -74,7 +74,7 @@ static void switch_color()
 	}
 }
 
-static void next_color(int next_color)
+static void next_color(Color next_color)
 {
 	if(color_count == 1)
 	{

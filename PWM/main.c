@@ -18,7 +18,7 @@ static void delay(uint32_t time);
 static __IO uint32_t TimingDelay;
 static bool running = true;
 static bool button_pressed = false;
-static uint32_t led_counter = 0;
+static int led_counter = 0;
 
 int main(void)
 {
