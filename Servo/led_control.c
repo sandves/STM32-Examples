@@ -57,22 +57,6 @@ void toggle_led()
 
 static void switch_color()
 {
-	/*switch(color)
-	{
-	case COLOR_RED:
-		GPIO_WriteBit(GPIOA, GPIO_Pin_0, led_state ? Bit_RESET : Bit_SET);
-		color = COLOR_GREEN;
-		break;
-	case COLOR_GREEN:
-		GPIO_WriteBit(GPIOA, GPIO_Pin_1, led_state ? Bit_RESET : Bit_SET);
-		color = COLOR_BLUE;
-		break;
-	case COLOR_BLUE:
-		GPIO_WriteBit(GPIOA, GPIO_Pin_2, led_state ? Bit_RESET : Bit_SET);
-		color = COLOR_RED;
-		break;
-	}*/
-
 	switch(color)
 	{
 	case COLOR_RED:
