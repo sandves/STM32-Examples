@@ -24,6 +24,8 @@ int main(void)
 {
 	SysTick_Config(SystemCoreClock / 1000);
 
+	delay(1000);
+
 	led_control_init();
 	servo_control_init();
 	init_button_gpio();
