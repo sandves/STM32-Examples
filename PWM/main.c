@@ -114,14 +114,17 @@ void TIM2_IRQHandler()
 
 			// The following code makes the LEDs blink twice
 			// followed by a longer pause.
-			if(led_counter % 2 != 0 && led_counter <=7)
+
+			if(led_counter % 3 == 0 && led_counter <= 9)
 			{
 				toggle_led();
-
 			}
-			if(led_counter == 20)
-				led_counter = 0;
+
 			led_counter++;
+
+			if(led_counter == 30)
+				led_counter = 0;
+
 		}
 	}
 }

@@ -76,7 +76,7 @@ static void switch_color()
 
 static void next_color(Color next_color)
 {
-	if(color_count == 1)
+	if(color_count == 3)
 	{
 		color = next_color;
 		color_count = 0;
