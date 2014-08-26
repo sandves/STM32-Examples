@@ -14,7 +14,7 @@ static void delay(uint32_t time);
 
 // __IO = volatile
 // Use __IO to prevent the compiler from removing the loop
-// in SystickHandle during code optimization.
+// in SystickHandler during code optimization.
 static __IO uint32_t TimingDelay;
 static bool running = true;
 static bool button_pressed = false;
